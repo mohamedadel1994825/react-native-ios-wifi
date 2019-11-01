@@ -1,33 +1,42 @@
 {
   "name": "react-native-ios-wifi",
-  "title": "React Native Ios Wifi",
-  "version": "1.0.2",
-  "description": "TODO",
+  "title": "Connecting WiFi automatically with react native 0.60",
+  "version": "1.0.10",
+  "description": "Experimental implementation of automatically connecting to protected WiFi from a react native app. This version supports pod install and is compatible with react-native 0.60 and above",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-ios-wifi.git",
-    "baseUrl": "https://github.com/github_account/react-native-ios-wifi"
+    "url": "git+https://github.com/Shweta-Porwal/react-native-ios-wifi.git",
+    "baseUrl": "https://github.com/Shweta-Porwal/react-native-ios-wifi"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "ios",
+    "wifi",
+    "ssid",
+    "xcode",
+    "connect",
+    "react",
+    "network",
+    "connection",
+    "component"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Shweta",
+    "email": "onesaiapps@gmail.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {
     "react": "^16.8.1",
-    "react-native": ">=0.59.0-rc.0 <1.0.x"
+    "react-native": "0.60.5"
   },
   "devDependencies": {
-    "react": "^16.8.3",
-    "react-native": "^0.59.10"
+    "react": "16.8.6",
+    "react-native": "0.60.5"
   }
 }
