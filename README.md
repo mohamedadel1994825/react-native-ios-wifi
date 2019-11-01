@@ -1,5 +1,8 @@
 # react-native-ios-wifi
 
+Experimental implementation of automatically connecting to protected WiFi from a react native app. This version supports pod install and is compatible with react-native 0.60 and above
+
+
 ## Getting started
 
 `$ npm install react-native-ios-wifi --save`
@@ -7,31 +10,16 @@
 ### Mostly automatic installation
 
 `$ react-native link react-native-ios-wifi`
+`$ cd ios`
+`$ pod install`
 
 ### Manual installation
 
-
-#### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-ios-wifi` and add `IosWifi.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libIosWifi.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
-
-#### Android
-
-1. Open up `android/app/src/main/java/[...]/MainApplication.java`
-  - Add `import com.reactlibrary.IosWifiPackage;` to the imports at the top of the file
-  - Add `new IosWifiPackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-ios-wifi'
-  	project(':react-native-ios-wifi').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-ios-wifi/android')
-  	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-ios-wifi')
-  	```
 
 
 ## Usage
@@ -39,11 +27,31 @@
 
 import WifiManager from 'react-native-wifi';
 
-WifiManager.connectToProtectedSSID(ssid, password, isWep)
-.then(() => {
-console.log('Connected successfully!')
-}, () => {
-console.log('Connection failed!')
-})
+// Call this method to automatically connect to WiFi with password
+try{
+    await WifiManager.connectToProtectedSSID(ssid, password, isWep);
+}catch (error) {
+    console.log("Unable to connect" + error.message);
+}
 
+// Call this method to automatically connect to WiFi without password
+try{
+    await WifiManager.connectToSSID(ssid);
+}catch (error) {
+    console.log("Unable to connect" + error.message);
+}
+
+// Call this method to automatically disconnect from a given WiFi
+try{
+    await WifiManager.disconnectFromSSID(ssid);
+}catch (error) {
+    console.log("Unable to disconnect" + error.message);
+}
+
+// Call this method to fetch current WiFi details
+try{
+    const wifiDetails = await WifiManager.getCurrentWifiSSID(ssid);
+}catch (error) {
+    console.log("Unable to fetch WiFi details" + error.message);
+}
 ```
