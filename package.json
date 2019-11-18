@@ -1,7 +1,7 @@
 {
   "name": "react-native-ios-wifi",
   "title": "Connecting WiFi automatically with react native 0.60",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Experimental implementation of automatically connecting to protected WiFi from a react native app. This version supports pod install and is compatible with react-native 0.60 and above",
   "main": "index.js",
   "scripts": {
